@@ -1,6 +1,6 @@
 # 开发用Ubuntu 16.04 X64 LTS虚拟机环境准备(2)
 
-更新时间：2021-08-21
+更新时间：2021-09-22
 
 ### 5、安装软件包
 
@@ -181,5 +181,23 @@ SecureCRT & SecureFX
 cd ~/TOOLS/scrt-sfx-8.7.3
 sudo ./SecureCRT
 sudo ./SecureFX
+```
+
+clang-format(代码格式化工具)
+
+```
+sudo apt-get install clang-format
+```
+
+fluxcomp(DirectFB依赖)
+
+```
+sudo tar -Jxf flux_bin.tar.xz -C /opt/
+```
+
+gcc-4.4.0-pmon(龙芯PMON编译工具链)
+
+```
+sudo tar -xf gcc-4.4.0-pmon.tgz -C /opt/
 ```
 
