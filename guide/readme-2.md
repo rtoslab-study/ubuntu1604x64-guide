@@ -1,6 +1,6 @@
 # 开发用Ubuntu 16.04 X64 LTS虚拟机环境准备(2)
 
-更新时间：2021-09-22
+更新时间：2021-09-25
 
 ### 5、安装软件包
 
@@ -131,10 +131,11 @@ isomaster(光盘镜像文件处理)
 sudo apt-get install isomaster
 ```
 
-xmake(编译工程组织工具，v2.5.6)
+xmake(编译工程组织工具，v2.5.7)
 
 ```
 bash <(curl -fsSL https://xmake.io/shget.text)
+xmake update
 ```
 
 cgdb(gdb字符模式前端)
@@ -199,5 +200,27 @@ gcc-4.4.0-pmon(龙芯PMON编译工具链)
 
 ```
 sudo tar -xf gcc-4.4.0-pmon.tgz -C /opt/
+```
+
+gcc-4.4-gnu_pmon(龙芯PMON编译工具链)
+
+```
+sudo tar -xf gcc-4.4-gnu_pmon.tar.gz -C /
+```
+
+gcc-4.4.7-7215-n64-loongson(龙芯UEFI编译工具链)
+```
+sudo tar -xf gcc-4.4.7-7215-n64-loongson.tar.gz -C /opt/
+```
+
+ejtag-debug-v3.25.19(龙芯ejtag调试工具)
+```
+tar -xf ejtag-debug-v3.25.19.tar.gz
+```
+
+linux-headers-4.15.0-106(haps-x86目标盘头文件)
+
+```
+sudo apt-get install linux-headers-4.15.0-106 linux-headers-4.15.0-106-generic
 ```
 
