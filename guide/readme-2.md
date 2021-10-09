@@ -1,6 +1,6 @@
 # 开发用Ubuntu 16.04 X64 LTS虚拟机环境准备(2)
 
-更新时间：2021-09-28
+更新时间：2021-10-09
 
 ### 5、安装软件包
 
@@ -131,14 +131,14 @@ sudo apt-get install gimp
 sudo apt-get install isomaster
 ```
 
-#### xmake(编译工程组织工具，v2.5.7)
+#### xmake(编译工程组织工具，v2.5.8)
 
 ```
 bash <(curl -fsSL https://xmake.io/shget.text)
 xmake update
 ```
 
-#### cgdb(gdb字符模式前端)
+#### cgdb(gdb字符模式前端，最低要求gdb 7.2)
 
 ```
 sudo apt-get install libreadline-dev
@@ -165,7 +165,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 ```bash
 sudo add-apt-repository \
-   "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
+   "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
 ```
@@ -262,3 +262,36 @@ Windows端的配置
 ![](./_pics_/smb-win10-02.png)
 
 ![](./_pics_/smb-win10-03.png)
+
+#### cmake(编译工具)
+
+```
+./bootstrap -- -DCMAKE_BUILD_TYPE:STRING=Release
+make
+sudo make install
+```
+
+#### gdb(调试工具，支持多CPU架构，支持TUI，可配合cgdb)
+
+```
+cd WORK
+mkdir -p gdb/build
+mkdir -p gdb/install
+tar xf gdb-9.2.tar.gz
+cd gdb/build/
+../../gdb-9.2/configure --enable-targets=all --enable-64-bit-bfd --enable-tui=yes --prefix=/home/skyhigh/WORK/gdb/install
+make
+make install
+```
+
+```
+export PATH=$HOME/WORK/gdb/install/bin:$PATH
+cgdb
+```
+
+#### vim(代码编辑工具)
+
+```
+sudo apt-get install vim
+```
+
